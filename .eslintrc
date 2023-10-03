@@ -1,0 +1,27 @@
+{
+	"extends": [
+		"plugin:vue/essential",
+		"eslint:recommended",
+		"@vue/eslint-config-prettier/skip-formatting"
+	],
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"parser": "@babel/eslint-parser"
+	},
+	"plugins": [
+		"vue"
+	],
+	"rules": {
+		"implicit-arrow-linebreak": "off"
+	},
+	"overrides": [
+		{
+			"files": [
+				"*.vue"
+			],
+			"rules": {
+				"sort-keys": "off"
+			}
+		}
+	]
+}
