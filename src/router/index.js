@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { capitalize } from '@/common/helpers.js';
+import { capitalize } from '@/lib/helpers.js';
 import routes from '@/router/routes.js';
 
 Vue.use(VueRouter);

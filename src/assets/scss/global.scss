@@ -1,12 +1,15 @@
+:root {
+	--color-white: #ffffff;
+}
+
 html {
 	min-width: 320px;
-	min-height: 100vh;
 	overflow-x: hidden;
-	overflow-anchor: none;
-	scroll-behavior: smooth;
 	font-size: 16px;
 	line-height: 1.5;
 	font-family: sans-serif;
+	overflow-anchor: none;
+	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-tap-highlight-color: transparent;
@@ -27,22 +30,6 @@ textarea {
 	transition-timing-function: ease-in-out;
 	transition-duration: 0.2s;
 	transition-property: color, opacity, background-color, background-image, border-color, box-shadow;
-
-	&:disabled {
-		cursor: not-allowed;
-		opacity: 0.5;
-	}
-}
-
-a,
-button {
-	&:hover {
-		opacity: 0.6;
-	}
-
-	&:active {
-		opacity: 0.3;
-	}
 }
 
 input,

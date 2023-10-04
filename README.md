@@ -1,11 +1,11 @@
 # vue2-boilerplate
 
-vue2, webpack, vuex, postcss, eslint, stylelint
+vue2, webpack, vue-router, vuex, scss, postcss, eslint, stylelint
 
 ### Установка зависимостей
 
 ```sh
-npm i
+npm ci
 ```
 
 ### Запуск в режиме разработки

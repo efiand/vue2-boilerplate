@@ -1,35 +1,20 @@
 <template>
 	<div>
 		<Component :is="layout">
-			<RouterView :appData="appData" />
+			<RouterView />
 		</Component>
 	</div>
 </template>
 
 <script>
-	import '@/assets/css/fonts.css';
-	import '@/assets/css/global.css';
-	import '@/assets/css/helpers.css';
-	import { mapState } from 'vuex';
-
 	export default {
 		name: 'App',
 
-		data() {
-			return {};
-		},
-
 		computed: {
-			...mapState(['appData']),
-
 			layout() {
 				const layout = this.$route.meta.layout || 'TheLayout';
 				return () => import(`@/layouts/${layout}.vue`);
 			}
-		},
-
-		beforeCreate() {
-			this.$store.dispatch('getData');
 		},
 
 		watch: {

@@ -8,19 +8,15 @@
 	"parserOptions": {
 		"parser": "@babel/eslint-parser"
 	},
-	"plugins": [
-		"vue"
-	],
+	"plugins": ["vue"],
 	"rules": {
 		"implicit-arrow-linebreak": "off"
 	},
 	"overrides": [
 		{
-			"files": [
-				"*.vue"
-			],
-			"rules": {
-				"sort-keys": "off"
+			"files": ["*.cjs"],
+			"env": {
+				"node": true
 			}
 		}
 	]

@@ -2,8 +2,23 @@
 	"processors": ["stylelint-processor-html"],
 	"extends": ["stylelint-config-standard", "stylelint-order-htmlacademy"],
 	"rules": {
+		"alpha-value-notation": "number",
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": ["content", "each", "forward", "include", "mixin", "use"]
+			}
+		],
+		"color-function-notation": "legacy",
+		"color-hex-case": "lower",
+		"color-hex-length": "long",
+		"font-family-name-quotes": "always-unless-keyword",
 		"indentation": "tab",
+		"import-notation": "string",
+		"media-feature-range-notation": "prefix",
 		"no-descending-specificity": null,
+		"number-leading-zero": "always",
+		"number-no-trailing-zeros": true,
 		"selector-pseudo-class-no-unknown": [
 			true,
 			{
@@ -18,6 +33,10 @@
 		]
 	},
 	"overrides": [
+		{
+			"files": ["src/**/*.scss"],
+			"customSyntax": "postcss-scss"
+		},
 		{
 			"files": ["src/**/*.vue"],
 			"customSyntax": "postcss-html"

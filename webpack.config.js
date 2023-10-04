@@ -1,10 +1,8 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import CssMqpackerPlugin from 'css-mqpacker-webpack-plugin';
-import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import StylelintPlugin from 'stylelint-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
 import { fileURLToPath } from 'url';
@@ -31,7 +29,7 @@ const baseConfig = {
 
 	plugins: [
 		new HtmlPlugin({
-			template: 'src/assets/index.html'
+			template: 'src/index.html'
 		}),
 		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
@@ -40,16 +38,10 @@ const baseConfig = {
 		new CopyPlugin({
 			patterns: [
 				{
-					context: 'src/static',
+					context: 'public',
 					from: '**/*'
 				}
 			]
-		}),
-		new ESLintPlugin({
-			extensions: ['vue', 'js']
-		}),
-		new StylelintPlugin({
-			files: ['**/*.{vue,css}']
 		})
 	],
 
@@ -84,12 +76,19 @@ export default (env, argv) => {
 				},
 				{
 					test: /\.css$/,
+					use: [isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
+				},
+				{
+					test: /\.s[ac]ss$/i,
 					use: [
 						isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+						'css-loader',
 						{
-							loader: 'css-loader'
-						},
-						'postcss-loader'
+							loader: 'sass-loader',
+							options: {
+								additionalData: '@import "@/assets/scss/env.scss";'
+							}
+						}
 					]
 				}
 			]
